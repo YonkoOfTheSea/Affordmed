@@ -3,7 +3,6 @@ class ToyTCPStreamReceiverAndReader{
     TreeMap<Integer,byte[]> map=new TreeMap<>();
 
     public void receive(int chunk, byte[] data){
-        chunk--;
         map.put(chunk-1,data);
     }
 
@@ -20,9 +19,8 @@ class ToyTCPStreamReceiverAndReader{
     public static void main(String[] args) {
         ToyTCPStreamReceiverAndReader toyTCPStreamReceiverAndReader=new ToyTCPStreamReceiverAndReader();
         toyTCPStreamReceiverAndReader.receive(6,new byte[]{'a',' ','P'});
-        toyTCPStreamReceiverAndReader.receive(1,new byte[]{'I',' ','a',' ','m',' '});
-
-
+        toyTCPStreamReceiverAndReader.receive(1,new byte[]{'I',' ','a','m',' '});
+        System.out.println(toyTCPStreamReceiverAndReader.read());
     }
 
 }
